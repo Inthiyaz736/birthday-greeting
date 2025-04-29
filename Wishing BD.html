@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      font-family: 'Open Sans', sans-serif;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 400px;
+      z-index: 10;
+      animation: popIn 1s ease-out forwards;
+      transform: scale(0.8);
+    }
+
+    @keyframes popIn {
+      to {
+        transform: scale(1);
+      }
+    }
+
+    .card h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.8rem;
+      color: #ff6f91;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Balloon base */
+    .balloon {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      border-radius: 50% 50% 45% 45%;
+      animation: floatBalloon 6s infinite ease-in;
+      opacity: 0.85;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #555;
+      transform: translateX(-50%);
+    }
+
+    /* Each balloon gets its own gradient color */
+    .balloon1 { background: radial-gradient(circle at 30% 30%, #ff6f91, #ff2d55); }
+    .balloon2 { background: radial-gradient(circle at 30% 30%, #6a82fb, #fc5c7d); }
+    .balloon3 { background: radial-gradient(circle at 30% 30%, #00c9ff, #92fe9d); }
+    .balloon4 { background: radial-gradient(circle at 30% 30%, #f093fb, #f5576c); }
+    .balloon5 { background: radial-gradient(circle at 30% 30%, #fbd786, #f7797d); }
+
+    @keyframes floatBalloon {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200px) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: transparent;
+      animation: explode 1.5s infinite ease-in-out;
+    }
+
+    @keyframes explode {
+      0% {
+        box-shadow:
+          0 0 #fff,
+          0 0 #ff0,
+          0 0 #f0f,
+          0 0 #0ff;
+        transform: scale(0);
+      }
+      50% {
+        box-shadow:
+          -20px -20px red,
+          20px -20px blue,
+          -20px 20px yellow,
+          20px 20px green,
+          0 -30px cyan,
+          0 30px magenta,
+          30px 0 orange,
+          -30px 0 purple;
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .card {
+        padding: 30px 20px;
+      }
+
+      .card h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fireworks -->
+  <div class="firework" style="top: 20%; left: 25%;"></div>
+  <div class="firework" style="top: 15%; left: 70%; animation-delay: 0.5s;"></div>
+  <div class="firework" style="top: 35%; left: 50%; animation-delay: 1s;"></div>
+
+  <!-- Balloons (with different colors) -->
+  <div class="balloon balloon1" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="balloon balloon2" style="left: 30%; animation-delay: 1s;"></div>
+  <div class="balloon balloon3" style="left: 50%; animation-delay: 2s;"></div>
+  <div class="balloon balloon4" style="left: 70%; animation-delay: 3s;"></div>
+  <div class="balloon balloon5" style="left: 90%; animation-delay: 4s;"></div>
+
+  <!-- Card Message -->
+  <div class="card">
+    <h1>Happy Birthday!</h1>
+    <p>Wishing you a day filled with love, laughter, and cake! 🎂✨<br/>Hope your year ahead is as amazing as you are!</p>
+    <div class="footer">— From Your Friend</div>
+  </div>
+
+</body>
+</html>
